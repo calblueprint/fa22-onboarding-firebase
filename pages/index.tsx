@@ -12,11 +12,9 @@ const Home: NextPage = () => {
   const [items, setItems] = useState([] as Item[])
 
   useEffect(() => {
-    // start code
-    getAllItems().then((fetchedItems) => {
-      setItems(fetchedItems);
-    });
-    // end code
+    // use your getAllItems method to set our items variable when the page loads up!
+    // remember that getAllItems returns a promise.
+    
   }, [])
 
   return (

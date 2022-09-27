@@ -1,5 +1,6 @@
 import { Checkbox } from '@mui/material';
 import React, { useState } from 'react';
+import { updateCheckmark } from '../../firebase/firestore/Item';
 import { Item } from '../../types/schema';
 import styles from './ItemList.module.css';
 
@@ -12,8 +13,10 @@ const ItemList = ({item}: ItemListTypes) => {
     const [isChecked, setIsChecked] = useState(item.checked);
 
     const handleCheck = () => {
-        setIsChecked(!isChecked)
-        //update in the backend!
+        let newChecked = !isChecked
+        setIsChecked(newChecked)
+        //update in the backend using the updateCheckmark function!
+        
     }
 
     return (

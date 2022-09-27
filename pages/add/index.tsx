@@ -11,15 +11,13 @@ const AddPage = () => {
     const [contentField, setContentField] = useState("");
 
     const handleSubmit = () => {
-        //handle this code!
         if (titleField != "" && contentField != "") {
-            const newItem = {
-                title: titleField,
-                content: contentField,
-                checked: false,
-            }
-            addItem(newItem as Item);
-            
+            // handle the add!
+
+
+            // resetting the text boxes to show it's been submitted!
+            setTitleField("")
+            setContentField("")
         }
 
         console.log(titleField);
@@ -37,9 +35,9 @@ const AddPage = () => {
                 <div className={styles.title}>
                     Here we'll add items!
                 </div>
-                <TextField id="standard-basic" label="title" variant="standard" 
+                <TextField id="standard-basic" label="title" variant="standard" value={titleField} 
                     onChange={(event) => setTitleField(event.target.value)}/>
-                <TextField id="standard-basic" label="content" variant="standard"
+                <TextField id="standard-basic" label="content" variant="standard" value={contentField}
                     onChange={(event) => setContentField(event.target.value)}/>
                 <div className={styles.button}>
                     <Button variant="contained" onClick={handleSubmit}>Submit</Button>
