@@ -25,7 +25,7 @@ const AddPage = () => {
     }
 
     return (
-        <>
+        <div className={styles.wrapper}>
             <div className={styles.link}>
                 <Link href="/">
                     <a>Back to Home</a>
@@ -43,7 +43,7 @@ const AddPage = () => {
                     <Button variant="contained" onClick={handleSubmit}>Submit</Button>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
