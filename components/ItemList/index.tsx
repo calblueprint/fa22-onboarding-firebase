@@ -16,6 +16,11 @@ const ItemList = ({item}: ItemListTypes) => {
         let newChecked = !isChecked
         setIsChecked(newChecked)
         //update in the backend using the updateCheckmark function!
+        const updateCheck = async () => {
+            console.log("this is the item", item)
+            const checkDate = await updateCheckmark(item, newChecked)
+        }
+        updateCheck();
         
     }
 
