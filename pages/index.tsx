@@ -15,6 +15,14 @@ const Home: NextPage = () => {
     // use your getAllItems method to set our items variable when the page loads up!
     // remember that getAllItems returns a promise.
     
+    const getItem = async () =>{
+      var item = await getAllItems()
+      console.log("these are what returns from items", item)
+      setItems(item)
+    }
+
+    getItem();
+    
   }, [])
 
   return (
