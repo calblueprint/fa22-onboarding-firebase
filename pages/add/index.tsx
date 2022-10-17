@@ -4,6 +4,8 @@ import Link from 'next/link'
 import { TextField, Button } from '@mui/material';
 import { Item } from '../../types/schema';
 import { addItem } from '../../firebase/firestore/Item';
+import { title } from 'process';
+import ItemList from '../../components/ItemList';
 
 const AddPage = () => {
 
@@ -12,9 +14,16 @@ const AddPage = () => {
 
     const handleSubmit = () => {
         if (titleField != "" && contentField != "") {
+
+
+            let Item = {
+                id: 'ID',
+                title: titleField,
+                content: contentField,
+                checked: false,
+            };
+            addItem(Item);
             // handle the add!
-
-
             // resetting the text boxes to show it's been submitted!
             setTitleField("")
             setContentField("")
