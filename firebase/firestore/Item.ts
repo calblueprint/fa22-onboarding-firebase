@@ -5,15 +5,27 @@ import { db } from "../firebaseConfig.js";
 const itemsRef = collection(db, "items");
 
 export const getAllItems = async (): Promise<Item[]> => {
+    const promises: Promise<Item>[] = [];
+    const docSnap = await getDocs(itemsRef);
+    docSnap.forEach((item) => {
+        promises.push(parseItem(item));
+    })
+    const allItems = await Promise.all(promises);
     // handle this
-    return [];
+    return allItems;
 }
 
 export const addItem = async (item: Item): Promise<void> => {
+    await addDoc(itemsRef, item);
     // handle this
 }
 
 export const updateCheckmark = async (item: Item, newChecked: boolean): Promise<void> => {
+    const docRef = doc(db, "items", item.id);
+    const data = {
+        checked: newChecked
+    }
+    await updateDoc(docRef, data)
     // handle this
 }
 
