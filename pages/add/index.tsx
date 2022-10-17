@@ -13,6 +13,18 @@ const AddPage = () => {
     const handleSubmit = () => {
         if (titleField != "" && contentField != "") {
             // handle the add!
+            const data:Item = { 
+                title: titleField,
+                content: contentField,
+                checked: true
+             }
+             const something = async () => {
+                let x = await addItem(data)
+                
+             }
+             something()
+
+
 
 
             // resetting the text boxes to show it's been submitted!
