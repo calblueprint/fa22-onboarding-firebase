@@ -14,7 +14,13 @@ const Home: NextPage = () => {
   useEffect(() => {
     // use your getAllItems method to set our items variable when the page loads up!
     // remember that getAllItems returns a promise.
-    
+    const testGetAllGrants = async() => {
+      const data = await getAllItems();
+      setItems(data);
+      console.log(data);
+    }
+
+    testGetAllGrants();
   }, [])
 
   return (
@@ -35,7 +41,7 @@ const Home: NextPage = () => {
             {
               items.map((item) => {
                 return (
-                  <ItemList item={item}/>
+                  <ItemList key="{item}" item={item}/>
                 )
               })
             }

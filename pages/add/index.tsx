@@ -13,6 +13,15 @@ const AddPage = () => {
     const handleSubmit = () => {
         if (titleField != "" && contentField != "") {
             // handle the add!
+            const item : any = {
+                title: titleField,
+                content: contentField,
+                checked: false
+            }
+            addItem(item);
+            setTitleField(titleField);
+            setContentField(contentField);
+
 
 
             // resetting the text boxes to show it's been submitted!
