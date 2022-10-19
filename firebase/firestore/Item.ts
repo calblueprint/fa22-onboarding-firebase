@@ -5,16 +5,40 @@ import { db } from "../firebaseConfig.js";
 const itemsRef = collection(db, "items");
 
 export const getAllItems = async (): Promise<Item[]> => {
-    // handle this
-    return [];
-}
+    try {
+      const itemsRef = collection(db, "items");
+      const promises: Promise<Item>[] = [];
+      const docSnap = await getDocs(itemsRef);
+      docSnap.forEach((item) => {
+        promises.push(parseItem(item))
+
+      })
+    const items = await Promise.all(promises);
+    return items;
+    } catch (e) {
+      console.warn(e);
+      throw e;
+    }
+};
 
 export const addItem = async (item: Item): Promise<void> => {
-    // handle this
+  try {
+    const itemsRef = collection(db, "items");
+    await addDoc(itemsRef, item)
+  } catch (e) {
+    console.warn(e);
+    throw e;
+  }
+
 }
 
 export const updateCheckmark = async (item: Item, newChecked: boolean): Promise<void> => {
-    // handle this
+    const docRef = doc(db, "items", item.id);
+    // This data object changes the fields that are different from the entry in backend!
+    const data = {
+        checked: newChecked
+    }
+    await updateDoc(docRef, data)
 }
 
 
