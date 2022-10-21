@@ -16,7 +16,7 @@ const ItemList = ({item}: ItemListTypes) => {
         let newChecked = !isChecked
         setIsChecked(newChecked)
         //update in the backend using the updateCheckmark function!
-        
+        updateCheckmark(item, newChecked)
     }
 
     return (

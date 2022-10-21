@@ -14,7 +14,7 @@ const Home: NextPage = () => {
   useEffect(() => {
     // use your getAllItems method to set our items variable when the page loads up!
     // remember that getAllItems returns a promise.
-    
+    getAllItems().then((items) => setItems(items))
   }, [])
 
   return (
